@@ -15,10 +15,8 @@ export default function App() {
         {/* Círuclo */}
         <View style={styles.outerCicle}>
           {/* Nível de água */}
-          <View style={styles.waterLevel}>
-
-          </View>
-          </View>
+          <View style={styles.waterLevel} />
+        </View>
       </View>
 
       {/* Botões */}
@@ -59,6 +57,7 @@ const styles = StyleSheet.create({
   outerCicle: {
     width: 220,
     height: 220,
+    backgroundColor: "#fff",
     borderRadius: 110,
     borderWidth: 8,
     borderColor: "#bae6fd",
@@ -72,12 +71,12 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
   },
   waterLevel: {
-    position: 'absolute',
+    position: "absolute",
     bottom: 0,
     left: 0,
     right: 0,
     height: 60,
-    backgroundColor: '#0ea5e9',
+    backgroundColor: "#0ea5e9",
     opacity: 0.2,
-  }
+  },
 });
