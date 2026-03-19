@@ -22,21 +22,23 @@ export default function App() {
       <View style={styles.header}>
         <Text style={styles.appTitle}>Beba Água 💧</Text>
         <Text style={styles.appSubtitle}>HIDRATAÇÃO DIÁRIA</Text>
-        <View>
-          <Text>Meta diária: {goal}</Text>
-          <View style={styles.meta}>
-            <TouchableOpacity onPress={() => setGoal(Math.max(0, goal - 1))}>
-              <Text>-</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => setGoal(goal + 1)}>
-              <Text>+</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
       </View>
 
       {/* Seção Principal / Indicador Visual */}
       <View style={styles.content}>
+      <View
+        style={styles.metaContainer}
+      >
+        <View style={styles.meta}>
+          <TouchableOpacity onPress={() => setGoal(Math.max(0, goal - 1))}>
+            <Text style={styles.metaButton}>-</Text>
+          </TouchableOpacity>
+          <Text style={styles.metaText}>Meta diária: {goal}</Text>
+          <TouchableOpacity onPress={() => setGoal(goal + 1)}>
+            <Text style={styles.metaButton}>+</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
         <View style={styles.outerCircleWrapper}></View>
 
         {/* Círculo */}
@@ -120,13 +122,39 @@ const styles = StyleSheet.create({
     width: "100%",
   },
 
+  metaContainer: {
+    marginTop: 20,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
   meta: {
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
+    gap: 20,
+  },
+
+  metaText: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#94a3d8",
   },
 
   metaButton: {
-    fontSize: 600,
+    width: 30,
+    height: 30,
+    borderRadius: 18,
+    backgroundColor: "#388df8",
+    elevation: 3,
+    shadowColor: "#0284c7",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 1,
+    shadowRadius: 4,
+    textAlign: "center",
+    textAlignVertical: "center",
+    fontSize: 30,
+    color: "#fff",
   },
 
   outerCircleWrapper: {
